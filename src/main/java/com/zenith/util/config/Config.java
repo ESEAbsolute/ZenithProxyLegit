@@ -170,7 +170,7 @@ public final class Config {
             public final Tasks tasks = new Tasks();
 
             public static final class Tasks {
-                public boolean enabled = true;
+                public boolean enabled = false;
                 public final LinkedHashMap<String, Task> tasks = new LinkedHashMap<>();
                 public boolean logCommandActionOutput = true;
                 public boolean taskCommandExecutedNotification = true;
@@ -469,7 +469,7 @@ public final class Config {
             public static final class AntiAFK {
                 public @Nullable Integer priority = null;
                 public Actions actions = new Actions();
-                public boolean enabled = true;
+                public boolean enabled = false;
 
                 public static final class Actions {
                     public boolean walk = true;

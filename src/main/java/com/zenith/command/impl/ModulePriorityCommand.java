@@ -5,7 +5,6 @@ import com.zenith.command.api.Command;
 import com.zenith.command.api.CommandCategory;
 import com.zenith.command.api.CommandContext;
 import com.zenith.command.api.CommandUsage;
-import com.zenith.feature.pathfinder.Baritone;
 import com.zenith.module.impl.*;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
@@ -41,8 +40,6 @@ public class ModulePriorityCommand extends Command {
                 "autoEat <default/int>",
                 "autoOmen <default/int>",
                 "click <default/int>",
-                "killAura <default/int>",
-                "pathfinder <default/int>",
                 "spawnPatrol <default/int>",
                 "antiAfk <default/int>",
                 "autoMend <default/int>",
@@ -111,28 +108,6 @@ public class ModulePriorityCommand extends Command {
                     CONFIG.client.extra.click.priority = null;
                     c.getSource().getEmbed()
                         .title("Click Priority Reset");
-                })))
-            .then(literal("killAura")
-                .then(argument("priority", integer()).executes(c -> {
-                    CONFIG.client.extra.killAura.actionPriority = getInteger(c, "priority");
-                    c.getSource().getEmbed()
-                        .title("KillAura Priority Set");
-                }))
-                .then(literal("default").executes(c -> {
-                    CONFIG.client.extra.killAura.actionPriority = null;
-                    c.getSource().getEmbed()
-                        .title("KillAura Priority Reset");
-                })))
-            .then(literal("pathfinder")
-                .then(argument("priority", integer()).executes(c -> {
-                    CONFIG.client.extra.pathfinder.priority = getInteger(c, "priority");
-                    c.getSource().getEmbed()
-                        .title("Pathfinder Priority Set");
-                }))
-                .then(literal("default").executes(c -> {
-                    CONFIG.client.extra.pathfinder.priority = null;
-                    c.getSource().getEmbed()
-                        .title("Pathfinder Priority Reset");
                 })))
             .then(literal("spawnPatrol")
                 .then(argument("priority", integer()).executes(c -> {
@@ -221,8 +196,6 @@ public class ModulePriorityCommand extends Command {
                 new ModuleInstance("AutoEat", () -> MODULE.get(AutoEat.class).getPriority(), () -> CONFIG.client.extra.autoEat.priority),
                 new ModuleInstance("AutoOmen", () -> MODULE.get(AutoOmen.class).getPriority(), () -> CONFIG.client.extra.autoOmen.priority),
                 new ModuleInstance("Click", () -> MODULE.get(Click.class).getPriority(), () -> CONFIG.client.extra.click.priority),
-                new ModuleInstance("KillAura", () -> MODULE.get(KillAura.class).getPriority(), () -> CONFIG.client.extra.killAura.actionPriority),
-                new ModuleInstance("Pathfinder", () -> Baritone.getPriority(), () -> CONFIG.client.extra.pathfinder.priority),
                 new ModuleInstance("SpawnPatrol", () -> MODULE.get(SpawnPatrol.class).getPriority(), () -> CONFIG.client.extra.spawnPatrol.priority),
                 new ModuleInstance("AntiAFK", () -> MODULE.get(AntiAFK.class).getPriority(), () -> CONFIG.client.extra.antiafk.priority),
                 new ModuleInstance("AutoMend", () -> MODULE.get(AutoMend.class).getPriority(), () -> CONFIG.client.extra.autoMend.priority),

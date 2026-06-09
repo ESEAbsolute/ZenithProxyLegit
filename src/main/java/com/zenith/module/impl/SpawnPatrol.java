@@ -130,7 +130,7 @@ public class SpawnPatrol extends Module {
     }
 
     private void handleBotTick(ClientBotTick event) {
-        if (CONFIG.client.extra.spawnPatrol.stuckKill && killTimer.tick(20L * CONFIG.client.extra.spawnPatrol.stuckKillSeconds) && !MODULE.get(KillAura.class).isActive()) {
+        if (CONFIG.client.extra.spawnPatrol.stuckKill && killTimer.tick(20L * CONFIG.client.extra.spawnPatrol.stuckKillSeconds)) {
             double dist = MathHelper.distance3d(lastX, lastY, lastZ, CACHE.getPlayerCache().getX(), CACHE.getPlayerCache().getY(), CACHE.getPlayerCache().getZ());
             if (dist < CONFIG.client.extra.spawnPatrol.stuckKillMinDist) {
                 info("sending /kill. expected: {} actual: {}", CONFIG.client.extra.spawnPatrol.stuckKillMinDist, dist);

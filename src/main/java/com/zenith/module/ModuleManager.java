@@ -35,7 +35,6 @@ public class ModuleManager {
             new Click(),
             new CoordObfuscation(),
             new ExtraChat(),
-            new KillAura(),
             new QueueWarning(),
             new ReplayMod(),
             new Requeue(),

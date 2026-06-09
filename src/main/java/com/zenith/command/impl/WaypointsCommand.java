@@ -29,10 +29,6 @@ public class WaypointsCommand extends Command {
             .category(CommandCategory.INFO)
             .description("""
                Save and manage waypoints.
-               
-               Waypoints can be used as pathfinder goals:
-               `b goto <waypointId>`
-               `b click <left/right> <waypointId>`
                """)
             .usageLines(
                 "add <id> <x> <y> <z>",

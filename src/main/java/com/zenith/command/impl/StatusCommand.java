@@ -112,7 +112,6 @@ public class StatusCommand extends Command {
                     .addField("Plugins", ImageInfo.inImageCode() ? "N/A (`java` required)" : toggleStr(CONFIG.plugins.enabled), true)
                     .addField("AutoDisconnect", toggleStr(MODULE.get(AutoDisconnect.class).isEnabled()), true)
                     .addField("AutoReconnect", toggleStr(MODULE.get(AutoReconnect.class).isEnabled()), true)
-                    .addField("KillAura", toggleStr(MODULE.get(KillAura.class).isEnabled()), true)
                     .addField("AutoTotem", toggleStr(MODULE.get(AutoTotem.class).isEnabled()), true)
                     .addField("AutoEat", toggleStr(MODULE.get(AutoEat.class).isEnabled()), true)
                     .addField("AntiAFK", toggleStr(MODULE.get(AntiAFK.class).isEnabled()), true)
